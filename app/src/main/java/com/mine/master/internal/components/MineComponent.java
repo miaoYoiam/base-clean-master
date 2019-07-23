@@ -1,6 +1,6 @@
 package com.mine.master.internal.components;
 
-import com.mine.master.MainActivity;
+import com.mine.master.ui.MainActivity;
 import com.mine.master.internal.PerActivity;
 import com.mine.master.internal.modules.ActivityModule;
 import com.mine.master.internal.modules.MineModule;

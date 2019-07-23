@@ -3,4 +3,209 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="bg_orange">#FF7029</color>
+    <!--浅绿-->
+    <color name="bg_light_main">#4CBC16</color>
+
+    <!--收藏黄-->
+    <color name="bg_yellow">#FFFFB219</color>
+    <!--价格红-->
+    <color name="bg_price_red">#FFFF342A</color>
+    <!--字灰色-->
+    <color name="bg_text_grey">@color/text_999</color>
+    <!--会员-->
+    <color name="bg_member">#FFE2BF76</color>
+    <!--微信绿-->
+    <color name="bg_02D86A">#FF02D86A</color>
+    <!--底灰色-->
+    <color name="bg_gray3">#FFF7F7F7</color>
+    <!--字黑色-->
+    <color name="bg_black">#FF000000</color>
+
+
+    <color name="bg_color1">#FFF7615A</color>
+    <color name="bg_color2">#FFFDC11F</color>
+    <color name="bg_color1_80">#CCF7615A</color>
+    <color name="bg_color2_80">#CCFDC11F</color>
+    <color name="bg_color3">#FF4DC3FF</color>
+    <color name="bg_color4">#FF47D653</color>
+    <color name="bg_434343">#FF434343</color>
+
+    <color name="bg_line">#FFE5E3DF</color>
+    <color name="bg_line_comment">#FFE7E7E7</color>
+
+    <color name="bg_gray0">#FFEEEEEE</color>
+    <color name="bg_gray1">#FFF3F2F0</color>
+    <color name="bg_gray2">#FFDBDBDB</color>
+    <color name="bg_gray4">#FFC2C2C2</color>
+    <color name="bg_gray5">#FFCECDCC</color>
+    <color name="bg_gray60">#FF999999</color>
+    <color name="bg_gray7">#FFFAF9F7</color>
+
+    <color name="bg_white1">#FFFFFFFF</color>
+    <color name="bg_white2">#FFF3F3F3</color>
+    <color name="bg_other">#FFFFC20D</color>
+
+    <color name="bg_orange1">#FFFD7A40</color>
+    <color name="bg_orange2">#FFD96736</color>
+    <color name="bg_yellow1">#FFFFA121</color>
+    <color name="bg_yellow2">#FFE5982D</color>
+    <color name="bg_yellow3">#FFffba00</color>
+    <color name="bg_blue1">#FF40a2fc</color>
+
+    <color name="bg_transparent">@android:color/transparent</color>
+    <color name="bg_transparent_30">#33000000</color>
+    <color name="bg_9B9B9B">#FF9B9B9B</color>
+    <color name="bg_FFC02F">#FFFFC02F</color>
+    <color name="bg_44CA85">#FF44CA85</color>
+    <color name="bg_E6E6E6">#FFE6E6E6</color>
+
+    <!--<color name="text_main">@color/bg_ffb21a</color>-->
+    <color name="text_black">@color/text_333</color>
+    <color name="text_gray30">#FF4C4C4C</color>
+    <color name="text_gray40">@color/text_999</color>
+    <color name="text_gray60">@color/text_999</color>
+    <color name="text_gray70">#FFB3B3B3</color>
+    <!--<color name="text_4">#FFF46C31</color>-->
+    <color name="text_white">@color/text_fff</color>
+    <color name="text_5_80">#CCFFFFFF</color>
+
+    <color name="text_6">#FF333333</color>
+    <color name="text_7">#FF72372F</color>
+    <color name="text_8">#FFDBDBDB</color>
+    <color name="text_9">#959595</color>
+
+    <color name="text_green">#FF34CF95</color>
+    <color name="text_dark_blue">#FF51558F</color>
+    <color name="text_black0">#FF000000</color>
+    <color name="text_gray1">#FFCCCCCC</color>
+
+    <color name="mask_black_05">#0C000000</color>
+    <color name="mask_black_40">#66000000</color>
+    <color name="mask_black_50">#7F000000</color>
+    <color name="mask_black_60">#99000000</color>
+    <color name="mask_black_90">#E6000000</color>
+    <color name="mask_black_CC">#ff000000</color>
+    <color name="mask_black_30">#4C000000</color>
+    <color name="mask_black_25">#3F000000</color>
+    <color name="mask_black_20">#10000000</color>
+    <color name="mask_black_10">#10000000</color>
+    <color name="mask_deep_white">#06F0F0F0</color>
+    <color name="mask_master_80">#CCF55061</color>
+
+    <color name="mask_white_70">#B3FFFFFF</color>
+    <color name="mask_white_80">#CCFFFFFF</color>
+    <color name="mask_white_95">#F2FFFFFF</color>
+    <color name="mask_white_40">#99FFFFFF</color>
+    <color name="mask_white_60">#66333333</color>
+
+    <color name="bg_tabbar">#FFFCFCFC</color>
+
+    <color name="text_ora1_80">#CCFF855A</color>
+    <color name="bg_4A4A4A">#4A4A4A</color>
+    <color name="black">#FF333333</color>
+    <color name="gray_40">#FF666666</color>
+    <color name="gray_60">#FF999999</color>
+    <color name="gray_70">#FFB3B3B3</color>
+    <color name="gray_80">#FFCCCCCC</color>
+    <color name="line">#FFE5E3DF</color>
+    <color name="gray0">#FFEEEEEE</color>
+    <color name="gray1">#FFFAF9F7</color>
+    <color name="gray2">#FFF3F2F0</color>
+    <color name="color1">#FFF7615A</color>
+    <color name="color2">#FFfdc11F</color>
+    <color name="color5">#FFFFB866</color>
+    <color name="color6">#FFFF9F32</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="bg_323232">#66323232</color>
+    <color name="bg_E2BF76">#FFE2BF76</color>
+    <color name="bg_e1B24f">#FFE1B24F</color>
+    <color name="bg_f0deB9">#FFF0DEB9</color>
+    <color name="bg_fffaf1">#FFFFFAF1</color>
+
+
+    <color name="red">@color/bg_price_red</color>
+    <color name="color3_red">@color/red</color>
+    <color name="red_fb2020">#FFFB2020</color>
+    <color name="bg_e5e3df">#E5E3DF</color>
+    <color name="bg_c2973e">#FFC2973E</color>
+    <color name="bg_ffb300">#FFFFB300</color>
+    <color name="bg_ffb21a_80">#CCFFB31A</color>
+    <color name="bg_ffb21a_84">#D6FFB31A</color>
+    <color name="bg_ffce6b">#CCFFCE6B</color>
+    <color name="bg_ffffce6b">#FFFFCE6B</color>
+
+    <color name="bg_256dc6">@color/text_999</color>
+
+    <color name="bg_9292af">@color/text_999</color>
+    <color name="bg_9293ae">@color/text_999</color>
+    <color name="bg_f1f7fa">#FFF1F7FA</color>
+    <color name="bg_454553">#FF454553</color>
+    <color name="bg_10_ff4c44">#1AFF4C44</color>
+    <color name="bg_4f4f4f">#FF4F4F4F</color>
+    <color name="bg_f3f3f3">#FFF3F3F3</color>
+    <color name="bg_5D5D78">#4c5D5D78</color>
+    <color name="bg_ffc46b">#FFFFC46B</color>
+    <color name="bg_151515">#FF151515</color>
+    <color name="bg_3F3F3F">#FF3F3F3F</color>
+    <color name="bg_FFB300">#FFFFB300</color>
+    <color name="bg_FFCA5E">#FFFFCA5E</color>
+    <color name="bg_FF9F1A">#FFFF9F1A</color>
+    <color name="bg_FF481E">#FFFF481E</color>
+    <color name="bg_FF811A">#FFFF811A</color>
+
+    <color name="bg_1cb12b">#FF1cb12b</color>
+    <color name="bg_616161">#FF616161</color>
+    <color name="bg_4d5360">#FF4D5360</color>
+    <color name="bg_212737">#FF212737</color>
+    <color name="bg_bfc1d6">#FFbfc1d6</color>
+    <color name="bg_0bec8c">#FF0bec8c</color>
+    <color name="bg_8e91b4">#FF8e91b4</color>
+    <color name="bg_00ff92">#FF00ff92</color>
+    <color name="bg_ffd800">#FFffd800</color>
+    <color name="bg_555f76">#FF555f76</color>
+    <color name="bg_464c59">#FF464c59</color>
+    <color name="bg_ced8dc">#FFCED8DC</color>
+    <color name="bg_454d5f">#FF454d5f</color>
+    <color name="bg_c3c3c3">#FFC3C3C3</color>
+    <color name="bg_356dff">#FF356DFF</color>
+    <color name="bg_faf7ff">#FFF2F7FF</color>
+    <color name="bg_f9f9f9">#FFF9F9F9</color>
+    <color name="bg_b29c6b">#FFB29C6B</color>
+    <color name="bg_a69164">#FFA69164</color>
+    <color name="bg_202020">#FF202020</color>
+    <color name="bg_c6a864">#FFC6A864</color>
+    <color name="bg_35ceac">#FF35CEAC</color>
+
+    <!--日历-->
+    <color name="solarTextColor">#000000</color>
+    <color name="lunarTextColor">#B2B2B2</color>
+    <color name="hintColor">#999999</color>
+    <color name="selectCircleColor">#FFFFFF</color>
+    <color name="holidayColor">#39AF81</color>
+    <color name="workdayColor">#EC7230</color>
+    <color name="pointColor">#B2B2B2</color>
+    <color name="todayTextColor">#FF333333</color>
+
+
+    <!--评论框背景颜色-->
+    <color name="bg_comment_bar_view">#FFffffff</color>
+
+
+    <color name="text_red">@color/bg_price_red</color>
+    <color name="text_fff">#FFFFFFFF</color>
+    <color name="text_gray">@color/text_999</color>
+    <color name="text_333">#FF333333</color>
+    <color name="text_999">#FF999999</color>
+    <color name="text_ff4c44">#FFFF4C44</color>
+    <color name="separator_color">#FFE5E3DF</color>
+    <color name="yellow_color">#FFE5E3DF</color>
+    <color name="red_color">#FFE5E3DF</color>
+    <color name="gray_color">#FFE5E3DF</color>
+    <color name="child_gray_color">#FFf7f7f7</color>
+
+    <color name="bg_ff4c44">@color/text_red</color>
+    <color name="bg_f0f0f0">#FFF0F0F0</color>
+    <color name="bg_f9ede7">#FFF9EDE7</color>
+    <color name="bg_fafafa">#FAFAFA</color>
 </resources>

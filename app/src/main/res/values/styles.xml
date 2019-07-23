@@ -1,11 +1,47 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+
+    <style name="AppBaseTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="actionBarItemBackground">@color/bg_white1</item>
+        <item name="actionMenuTextAppearance">@style/MenuTextStyle</item>
+        <item name="actionMenuTextColor">@color/text_black</item>
+        <item name="android:actionMenuTextAppearance">@style/MenuTextStyle</item>
+        <item name="android:actionMenuTextColor">@color/text_black</item>
+        <item name="android:textColorPrimary">@color/text_black</item>
+        <item name="homeAsUpIndicator">@mipmap/icon_back_black</item>
+        <item name="toolbarNavigationButtonStyle">@style/toolbarNav</item>
+        <item name="toolbarStyle">@style/toolbarStyle</item>
+        <item name="colorAccent">@color/text_black</item>
+        <item name="buttonBarNegativeButtonStyle">@style/negativeBtnstyle</item>
     </style>
 
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme"></style>
+
+
+    <style name="MenuTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Menu">
+        <item name="android:textSize">@dimen/text_size_16</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="toolbarNav" parent="Widget.AppCompat.Toolbar.Button.Navigation">
+        <item name="android:minWidth">56dp</item>
+        <item name="android:scaleType">center</item>
+        <item name="android:background">@color/bg_white1</item>
+    </style>
+
+    <style name="toolbarStyle" parent="Base.Widget.AppCompat.Toolbar">
+        <item name="android:background">@mipmap/bg_appbar</item>
+        <item name="contentInsetStart">0dp</item>
+        <item name="titleMarginTop">14.5dp</item>
+        <item name="navigationIcon">@mipmap/icon_back_black</item>
+    </style>
+
+    <!--取消按钮样式-->
+    <style name="negativeBtnstyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">#999999</item>
+    </style>
 </resources>

@@ -1,17 +1,17 @@
-package com.mine.master;
+package com.mine.master.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import com.mine.master.ui.TestActivity;
+import com.mine.master.R;
+import com.mine.master.ui.base.view.BaseActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     @BindView(R.id.text)
     TextView textView;
 

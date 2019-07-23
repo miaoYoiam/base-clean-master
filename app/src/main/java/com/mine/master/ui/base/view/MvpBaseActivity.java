@@ -1,10 +1,10 @@
-package com.mine.master.base.view;
+package com.mine.master.ui.base.view;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-import com.mine.master.base.presenter.MvpPresenter;
+import com.mine.master.ui.base.presenter.MvpPresenter;
 
 public abstract class MvpBaseActivity<V extends MvpView, P extends MvpPresenter> extends BaseActivity implements MvpView {
     public abstract P getPresenter();

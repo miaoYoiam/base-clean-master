@@ -1,4 +1,4 @@
-package com.mine.master.base.view;
+package com.mine.master.ui.base.view;
 
 import android.content.Context;
 

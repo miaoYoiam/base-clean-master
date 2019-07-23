@@ -1,6 +1,6 @@
-package com.mine.master.base.presenter;
+package com.mine.master.ui.base.presenter;
 
-import com.mine.master.base.view.MvpView;
+import com.mine.master.ui.base.view.MvpView;
 
 public interface MvpPresenter<V extends MvpView> {
     void attachView(V v);

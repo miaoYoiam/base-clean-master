@@ -5,7 +5,7 @@ import android.content.Context;
 import com.mine.domain.executor.PostExecutionThread;
 import com.mine.domain.executor.ThreadExecutor;
 import com.mine.domain.repository.UserRepository;
-import com.mine.master.base.view.BaseActivity;
+import com.mine.master.ui.base.view.BaseActivity;
 import com.mine.master.internal.modules.ApiModule;
 import com.mine.master.internal.modules.ApplicationModule;
 

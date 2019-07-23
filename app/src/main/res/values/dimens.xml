@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="interval_6">6dp</dimen>
+    <dimen name="interval_10">10dp</dimen>
+    <dimen name="interval_15">15dp</dimen>
+    <dimen name="interval_20">20dp</dimen>
+    <dimen name="interval_30">30dp</dimen>
+    <dimen name="interval_40">40dp</dimen>
+    <dimen name="margin_22">22dp</dimen>
+
+    <dimen name="radius_4">4dp</dimen>
+    <dimen name="radius_8">8dp</dimen>
+    <dimen name="radius_12">12dp</dimen>
+
+
+    <dimen name="button_radius_31">31dp</dimen>
+    <dimen name="button_radius_22">22dp</dimen>
+    <dimen name="button_radius_20">20dp</dimen>
+
+    <dimen name="button_height_45">45dp</dimen>
+
+
+    <dimen name="avatar_18">18dp</dimen>
+    <dimen name="avatar_26">26dp</dimen>
+    <dimen name="avatar_32">32dp</dimen>
+    <dimen name="avatar_40">40dp</dimen>
+    <dimen name="avatar_68">68dp</dimen>
+
+    <dimen name="text_size_10">10dp</dimen>
+    <dimen name="text_size_12">12dp</dimen>
+    <dimen name="text_size_14">14dp</dimen>
+    <dimen name="text_size_16">16dp</dimen>
+    <dimen name="text_size_18">18dp</dimen>
+    <dimen name="text_size_20">20dp</dimen>
+    <dimen name="text_size_22">22dp</dimen>
+    <dimen name="text_size_24">24dp</dimen>
+    <dimen name="text_size_40">40dp</dimen>
+
+</resources>

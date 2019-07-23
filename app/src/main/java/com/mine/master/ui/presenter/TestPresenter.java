@@ -1,4 +1,4 @@
-package com.mine.master.presenter;
+package com.mine.master.ui.presenter;
 
 import android.util.Log;
 
@@ -8,8 +8,8 @@ import com.mine.domain.model.GetCaptheResult;
 import com.mine.domain.model.GetRecipeHomeResult;
 import com.mine.domain.repository.params.GetCaptchaParams;
 import com.mine.domain.repository.params.GetRecipeHomeParams;
-import com.mine.master.base.presenter.MvpBasePresenter;
-import com.mine.master.view.TestView;
+import com.mine.master.ui.base.presenter.MvpBasePresenter;
+import com.mine.master.ui.view.TestView;
 
 import javax.inject.Inject;
 

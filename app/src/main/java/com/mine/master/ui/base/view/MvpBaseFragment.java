@@ -1,10 +1,10 @@
-package com.mine.master.base.view;
+package com.mine.master.ui.base.view;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 
-import com.mine.master.base.presenter.MvpPresenter;
+import com.mine.master.ui.base.presenter.MvpPresenter;
 
 public abstract class MvpBaseFragment<V extends MvpView, P extends MvpPresenter> extends BaseFragment implements MvpView {
     protected abstract P getPresenter();
