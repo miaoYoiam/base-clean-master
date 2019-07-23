@@ -1,0 +1,56 @@
+apply plugin: 'com.android.library'
+
+android {
+    defaultPublishConfig "debug"
+
+
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConfiguration.getAt("androidCompileSdkVersion")
+    buildToolsVersion globalConfiguration.getAt("androidBuildToolsVersion")
+
+
+    defaultConfig {
+        minSdkVersion globalConfiguration.getAt("androidMinSdkVersion")
+        targetSdkVersion globalConfiguration.getAt("androidTargetSdkVersion")
+        versionCode 1
+        versionName "1.0"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    lintOptions {
+        quiet true
+        abortOnError false
+        ignoreWarnings true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    def dataDependencies = rootProject.ext.dataDependencies
+    implementation dataDependencies.okHttp
+    implementation dataDependencies.okHttpLogging
+    implementation dataDependencies.gson
+    implementation dataDependencies.retroift
+    implementation dataDependencies.retrofitConverterGson
+    implementation dataDependencies.retrofitAdapterRxjava
+
+    api dataDependencies.appcompatV7
+    compileOnly dataDependencies.javaxAnnotation
+    implementation dataDependencies.javaxInject
+    implementation project(path: ':domain')
+
+}

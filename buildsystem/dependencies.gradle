@@ -1,0 +1,81 @@
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+ext {
+    //Android
+    androidBuildToolsVersion = "27.0.3"
+    androidMinSdkVersion = 18
+    androidTargetSdkVersion = 27
+    androidCompileSdkVersion = 27
+
+    //Libraries
+    daggerVersion = '2.8'
+    butterKnifeVersion = '8.5.1'
+    appcompatV7Version = '27.1.1'
+    recyclerViewVersion = '27.1.1'
+    rxJavaVersion = '2.2.10'
+    rxAndroidVersion = '2.0.1'
+    javaxAnnotationVersion = '1.0'
+    javaxInjectVersion = '1'
+    gsonVersion = '2.8.5'
+    okHttpVersion = '3.12.2'
+    okHttpLoggingVersion = '3.12.2'
+    androidAnnotationsVersion = '21.0.3'
+    glideVersion = '4.8.0'
+    glideTransformationsVersion = '3.3.0'
+    retrofitVersion = '2.2.0'
+    retrofitConverterGson = retrofitVersion
+    retrofitAdapterRxjava = retrofitVersion
+
+    presentationDependencies = [
+            daggerCompiler        : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            dagger                : "com.google.dagger:dagger:${daggerVersion}",
+            butterKnife           : "com.jakewharton:butterknife:${butterKnifeVersion}",
+            butterKnifeCompiler   : "com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
+            recyclerView          : "com.android.support:recyclerview-v7:${recyclerViewVersion}",
+            rxJava                : "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+            rxAndroid             : "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
+            javaxAnnotation       : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            glide                 : "com.github.bumptech.glide:annotations:${glideVersion}",
+            glideCompiler         : "com.github.bumptech.glide:compiler:${glideVersion}",
+            glideOkHttpIntegration: "com.github.bumptech.glide:okhttp3-integration:${glideVersion}",
+            glideTransformations  : "jp.wasabeef:glide-transformations:${glideTransformationsVersion}",
+            javaxAnnotation       : "javax.annotation:jsr250-api:${javaxAnnotationVersion}"
+
+    ]
+
+
+    domainDependencies = [
+            javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            javaxInject    : "javax.inject:javax.inject:${javaxInjectVersion}",
+            rxJava         : "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+            gson           : "com.google.code.gson:gson:${gsonVersion}",
+            rxAndroid             : "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
+    ]
+
+
+    dataDependencies = [
+            daggerCompiler       : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            dagger               : "com.google.dagger:dagger:${daggerVersion}",
+            okHttp               : "com.squareup.okhttp3:okhttp:${okHttpVersion}",
+            okHttpLogging        : "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}",
+            gson                 : "com.google.code.gson:gson:${gsonVersion}",
+            rxJava               : "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+            rxAndroid             : "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
+            javaxAnnotation      : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            javaxInject          : "javax.inject:javax.inject:${javaxInjectVersion}",
+            appcompatV7          : "com.android.support:appcompat-v7:${appcompatV7Version}",
+            androidAnnotations   : "com.android.support:support-annotations:${androidAnnotationsVersion}",
+            butterKnife          : "com.jakewharton:butterknife:${butterKnifeVersion}",
+            butterKnifeCompiler  : "com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
+            javaxInject          : "javax.inject:javax.inject:${javaxInjectVersion}",
+            androidAnnotations   : "com.android.support:support-annotations:${androidAnnotationsVersion}",
+            retroift             : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+            retrofitConverterGson: "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
+            retrofitAdapterRxjava: "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}",
+    ]
+
+}

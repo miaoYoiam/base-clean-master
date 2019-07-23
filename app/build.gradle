@@ -1,0 +1,84 @@
+apply plugin: 'com.android.application'
+android {
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+
+    compileSdkVersion globalConfiguration.getAt("androidCompileSdkVersion")
+    buildToolsVersion globalConfiguration.getAt("androidBuildToolsVersion")
+
+    defaultConfig {
+        applicationId "com.mine.master"
+        minSdkVersion globalConfiguration.getAt("androidMinSdkVersion")
+        targetSdkVersion globalConfiguration.getAt("androidTargetSdkVersion")
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+        quiet true
+        abortOnError false
+        ignoreWarnings true
+        disable 'InvalidPackage'            //Some libraries have issues with this.
+        disable 'OldTargetApi'
+        //Lint gives this warning but SDK 20 would be Android L Beta.
+    }
+
+    signingConfigs {
+        debug {
+//            storeFile file('../buildsystem/debug.keystore')
+//            storePassword 'android'
+//            keyAlias 'androiddebugkey'
+//            keyPassword 'android'
+        }
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig signingConfigs.debug
+        }
+    }
+}
+
+dependencies {
+    def presentationDependencies = rootProject.ext.presentationDependencies
+
+
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    annotationProcessor presentationDependencies.daggerCompiler
+    implementation presentationDependencies.dagger
+    implementation presentationDependencies.butterKnife
+    annotationProcessor presentationDependencies.butterKnifeCompiler
+    implementation presentationDependencies.recyclerView
+    implementation presentationDependencies.glide
+    annotationProcessor presentationDependencies.glideCompiler
+    implementation(presentationDependencies.glideOkHttpIntegration) {
+        exclude group: 'com.squareup.okhttp3', module: 'okhttp'
+        exclude group: 'com.android.support'
+        transitive = false
+    }
+    implementation(presentationDependencies.glideTransformations) {
+        exclude group: 'com.android.support'
+    }
+    compileOnly presentationDependencies.javaxAnnotation
+
+
+    implementation project(':domain')
+    implementation project(':data')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+}
