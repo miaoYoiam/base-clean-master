@@ -10,9 +10,12 @@ import com.mine.domain.repository.params.GetRecipeHomeParams;
 import javax.inject.Inject;
 
 import io.reactivex.Observable;
+import io.reactivex.observers.DisposableObserver;
 
 public class GetRecipeHomeUseCase extends BaseRequestUseCase<GetRecipeHomeResult, GetRecipeHomeParams> {
     private UserRepository userRepository;
+    private String offset;
+    private String num;
 
     @Inject
     public GetRecipeHomeUseCase(UserRepository userRepository, ThreadExecutor threadExecutor, PostExecutionThread postExecutionThread) {
@@ -23,6 +26,12 @@ public class GetRecipeHomeUseCase extends BaseRequestUseCase<GetRecipeHomeResult
 
     @Override
     public Observable<GetRecipeHomeResult> buildUseCaseObservable(GetRecipeHomeParams getRecipeHomeParams) {
-        return this.userRepository.getRecipeHome(getRecipeHomeParams);
+        return this.userRepository.getRecipeHome(getRecipeHomeParams,offset,num);
+    }
+
+    public void execute(DisposableObserver<GetRecipeHomeResult> observer, GetRecipeHomeParams getRecipeHomeParams, String offset, String num) {
+        this.offset = offset;
+        this.num = num;
+        super.execute(observer, getRecipeHomeParams);
     }
 }

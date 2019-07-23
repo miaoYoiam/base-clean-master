@@ -54,9 +54,9 @@ public class UserDataRepository implements UserRepository {
     }
 
     @Override
-    public Observable<GetRecipeHomeResult> getRecipeHome(GetRecipeHomeParams getRecipeHomeParams) {
+    public Observable<GetRecipeHomeResult> getRecipeHome(GetRecipeHomeParams getRecipeHomeParams, String offset, String num) {
 
-        return RepositoryUtils.extractData(this.userApi.getRecipeHome(getRecipeHomeParams), GetRecipeHomeResult.class);
+        return RepositoryUtils.extractData(this.userApi.getRecipeHome(getRecipeHomeParams,offset,num), GetRecipeHomeResult.class);
     }
 
 

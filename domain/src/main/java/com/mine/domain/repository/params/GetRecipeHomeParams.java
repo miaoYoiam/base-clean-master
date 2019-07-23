@@ -5,8 +5,4 @@ import com.google.gson.annotations.SerializedName;
 public class GetRecipeHomeParams {
     @SerializedName("request_count")
     public String requestCount;
-
-//    public String offset;
-//
-//    public String num;
 }

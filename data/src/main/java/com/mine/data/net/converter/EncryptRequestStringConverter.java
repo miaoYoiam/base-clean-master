@@ -39,11 +39,8 @@ final class EncryptRequestStringConverter<T> implements Converter<T, String> {
 
     @Override
     public String convert(T value) throws IOException {
-        return encrypt(new Gson().toJson(value));
+        return (String) value;
     }
 
-    private static String encrypt(String requestContent) {
-        String encryptDESParams = ""/*DesUtil.encryptDES(requestContent, CommonUtil.getPreC(1) + BaseRequestHandler.p + CommonUtil.getPreC(2) + DataErrorHandler.m + CommonUtil.getPreC(3))*/;//"23a89k12"
-        return encryptDESParams;
-    }
+
 }

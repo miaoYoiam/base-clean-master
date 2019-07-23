@@ -76,10 +76,8 @@ public class TestPresenter extends MvpBasePresenter<TestView> {
 
     public void getRecipeHome(int requestCount, int offset, int num) {
         GetRecipeHomeParams getRecipeHomeParams = new GetRecipeHomeParams();
-//        getRecipeHomeParams.offset = offset + "";
-//        getRecipeHomeParams.num = num + "";
         getRecipeHomeParams.requestCount = requestCount + "";
-        getReipeHomeUseCase.execute(new GetRecipeHomeUserCaseObserver(), getRecipeHomeParams);
+        getReipeHomeUseCase.execute(new GetRecipeHomeUserCaseObserver(), getRecipeHomeParams,offset+"",num+"");
 
     }
 

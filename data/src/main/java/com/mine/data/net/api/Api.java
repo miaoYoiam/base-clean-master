@@ -7,15 +7,17 @@ import com.mine.domain.repository.params.GetRecipeHomeParams;
 import io.reactivex.Observable;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
-/**
- * api version 2.0
- */
+
 public interface Api {
     @POST("user_server/client/send_code")
     Observable<HttpResponse> getCaptcha(@Body GetCaptchaParams getCaptchaParams);//获取验证码
 
-    @POST("bdapp/home/0/20")
-    Observable<HttpResponse> getRecipeHome(@Body GetRecipeHomeParams getRecipeHomeParams);//获取验证码
+    @POST("bdapp/home/{offset}/{num}")
+    Observable<HttpResponse> getRecipeHome(
+            @Body GetRecipeHomeParams getRecipeHomeParams
+            , @Path("offset") String offset
+            , @Path("num") String num);
 
 }

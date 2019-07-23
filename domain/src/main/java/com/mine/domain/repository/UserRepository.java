@@ -26,7 +26,7 @@ import io.reactivex.Observable;
 public interface UserRepository {
     Observable<GetCaptheResult> getCaptcha(GetCaptchaParams getCaptchaParams);
 
-    Observable<GetRecipeHomeResult> getRecipeHome(GetRecipeHomeParams getRecipeHomeParams);
+    Observable<GetRecipeHomeResult> getRecipeHome(GetRecipeHomeParams getRecipeHomeParams,String offset,String num);
 
 
 }
