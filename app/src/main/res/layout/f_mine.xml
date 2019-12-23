@@ -1,14 +1,206 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg_white1"
+    android:orientation="vertical"
     tools:context=".ui.MineFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="MineFragment" />
+        android:layout_height="100dp"
+        android:layout_marginLeft="@dimen/margin_22"
+        android:layout_marginTop="@dimen/margin_22"
+        android:layout_marginRight="@dimen/margin_22">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="王蒙"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_24" />
+
+            <TextView
+                android:id="@+id/user_role"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/interval_20"
+                android:text="个人用户"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_16" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="78dp"
+            android:layout_height="78dp"
+            android:layout_gravity="right|center_vertical"
+            android:src="@mipmap/icon_default_avator" />
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:background="@color/gray_color" />
+
+    <FrameLayout
+        android:id="@+id/show_personal_resume"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/interval_20"
+        android:paddingTop="@dimen/interval_10"
+        android:paddingRight="@dimen/interval_20"
+        android:paddingBottom="@dimen/interval_10">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="个人简历查看"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_18" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"
+            android:src="@mipmap/icon_arrow_gray_right" />
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="@dimen/margin_22"
+        android:layout_marginRight="@dimen/margin_22"
+        android:background="@color/gray_color" />
+
+    <FrameLayout
+        android:id="@+id/show_company_resume"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/interval_20"
+        android:paddingTop="@dimen/interval_10"
+        android:paddingRight="@dimen/interval_20"
+        android:paddingBottom="@dimen/interval_10">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="公司招聘查看"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_18" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"
+            android:src="@mipmap/icon_arrow_gray_right" />
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="@dimen/margin_22"
+        android:layout_marginRight="@dimen/margin_22"
+        android:background="@color/gray_color" />
+
+    <FrameLayout
+        android:id="@+id/show_advise"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/interval_20"
+        android:paddingTop="@dimen/interval_10"
+        android:paddingRight="@dimen/interval_20"
+        android:paddingBottom="@dimen/interval_10">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="意见反馈"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_18" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"
+            android:src="@mipmap/icon_arrow_gray_right" />
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="@dimen/margin_22"
+        android:layout_marginRight="@dimen/margin_22"
+        android:background="@color/gray_color" />
+
+    <FrameLayout
+        android:id="@+id/show_treaty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/interval_20"
+        android:paddingTop="@dimen/interval_10"
+        android:paddingRight="@dimen/interval_20"
+        android:paddingBottom="@dimen/interval_10">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="隐私条款"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_18" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"
+            android:src="@mipmap/icon_arrow_gray_right" />
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="@dimen/margin_22"
+        android:layout_marginRight="@dimen/margin_22"
+        android:background="@color/gray_color" />
+
+    <FrameLayout
+        android:id="@+id/show_version"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/interval_20"
+        android:paddingTop="@dimen/interval_10"
+        android:paddingRight="@dimen/interval_20"
+        android:paddingBottom="@dimen/interval_10">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="当前版本"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_18" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"
+            android:text="1.0.0" />
+    </FrameLayout>
+
+    <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>

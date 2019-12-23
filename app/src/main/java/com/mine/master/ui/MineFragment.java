@@ -31,6 +31,7 @@ public class MineFragment extends MvpBaseFragment<MineFragmentView, MineFragment
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getComponent(MineComponent.class).inject(this);
+        getPresenter().attachView(this);
     }
 
 

@@ -8,6 +8,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,6 +47,15 @@ public class RegisterActivity extends MvpBaseActivity<RegisterView, RegisterPres
     @BindView(R.id.register_btn)
     TextView registerBtn;
 
+    @BindView(R.id.user_role_select_container)
+    RadioGroup userRoleRadioGroup;
+
+
+    public static final int TYPE_ROLE_PERSONAL = 0;
+    public static final int TYPE_ROLE_COMPANY = TYPE_ROLE_PERSONAL + 1;
+    public int currentRoleType = TYPE_ROLE_PERSONAL;
+
+
     @Override
     public RegisterPresenter getPresenter() {
         return this.presenter;
@@ -79,7 +89,20 @@ public class RegisterActivity extends MvpBaseActivity<RegisterView, RegisterPres
                 String userPassword = editUserPassword.getText().toString().trim();
                 String confirmPassword = confirmEditUserPassword.getText().toString().trim();
                 if (checkRegister(userName, userPassword, confirmPassword)) {
-                    getPresenter().userRegister(userName, userPassword);
+                    getPresenter().userRegister(userName, userPassword, currentRoleType + "");
+                }
+            }
+        });
+        userRoleRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.select_personal:
+                        currentRoleType = TYPE_ROLE_PERSONAL;
+                        break;
+                    case R.id.select_company:
+                        currentRoleType = TYPE_ROLE_COMPANY;
+                        break;
                 }
             }
         });
@@ -134,6 +157,7 @@ public class RegisterActivity extends MvpBaseActivity<RegisterView, RegisterPres
     @Override
     public void userRegisterSuccess(UserRegisterResult userRegisterResult) {
         SharePersistentUtils.getInstance().saveInt(RegisterActivity.this, Keys.USER_ID, userRegisterResult.id);
+        SharePersistentUtils.getInstance().saveInt(RegisterActivity.this, Keys.USER_ROLE_TYPE, Integer.parseInt(userRegisterResult.roleType));
         SharePersistentUtils.getInstance().savePerference(RegisterActivity.this, Keys.USER_NAME, userRegisterResult.userName);
         SharePersistentUtils.getInstance().savePerference(RegisterActivity.this, Keys.USER_ROLE, userRegisterResult.roleName);
         Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();

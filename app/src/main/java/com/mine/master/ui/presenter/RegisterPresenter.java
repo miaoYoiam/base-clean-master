@@ -23,11 +23,12 @@ public class RegisterPresenter extends MvpBasePresenter<RegisterView> {
     }
 
 
-    public void userRegister(String userName, String userPassword) {
+    public void userRegister(String userName, String userPassword,String roleType) {
         UserRegisterParams UserRegisterParams = new UserRegisterParams();
         UserRegisterParams.userName = userName;
         UserRegisterParams.password = userPassword;
         UserRegisterParams.roleName = "普通用户";
+        UserRegisterParams.roleType = roleType;
         userRegisterUseCase.setParams(UserRegisterParams);
         this.userRegisterUseCase.execute(new UserRegisterUseCaseObserver(), UserRegisterParams);
     }

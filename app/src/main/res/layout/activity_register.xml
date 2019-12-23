@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.LoginActivity">
+    tools:context=".ui.RegisterActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -135,11 +135,52 @@
 
     </LinearLayout>
 
+
+    <LinearLayout
+        android:id="@+id/user_role"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/confirm_userpassword_container"
+        android:layout_marginLeft="@dimen/margin_22"
+        android:layout_marginRight="@dimen/margin_22"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="用户类型"
+            android:textColor="@color/text_gray"
+            android:textSize="@dimen/text_size_18" />
+
+
+        <RadioGroup
+            android:id="@+id/user_role_select_container"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/select_personal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="个人用户" />
+
+            <RadioButton
+                android:id="@+id/select_company"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="企业用户" />
+        </RadioGroup>
+
+    </LinearLayout>
+
     <TextView
         android:id="@+id/register_btn"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:layout_below="@+id/confirm_userpassword_container"
+        android:layout_below="@+id/user_role"
         android:layout_marginLeft="@dimen/margin_22"
         android:layout_marginTop="@dimen/interval_40"
         android:layout_marginRight="@dimen/margin_22"
