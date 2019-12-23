@@ -18,11 +18,19 @@ package com.mine.data.repository;
 import android.content.Context;
 
 import com.mine.data.net.api.Api;
-import com.mine.domain.model.GetCaptheResult;
-import com.mine.domain.model.GetRecipeHomeResult;
 import com.mine.domain.repository.UserRepository;
+import com.mine.domain.repository.params.CompanyInviteInfoListParams;
 import com.mine.domain.repository.params.GetCaptchaParams;
 import com.mine.domain.repository.params.GetRecipeHomeParams;
+import com.mine.domain.repository.params.PersonalResumeListParams;
+import com.mine.domain.repository.params.UserLoginParams;
+import com.mine.domain.repository.params.UserRegisterParams;
+import com.mine.domain.result.CompanyInviteInfoListReuslt;
+import com.mine.domain.result.GetCaptheResult;
+import com.mine.domain.result.GetRecipeHomeResult;
+import com.mine.domain.result.PersonalResumeListResult;
+import com.mine.domain.result.UserLoginResult;
+import com.mine.domain.result.UserRegisterResult;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -56,7 +64,27 @@ public class UserDataRepository implements UserRepository {
     @Override
     public Observable<GetRecipeHomeResult> getRecipeHome(GetRecipeHomeParams getRecipeHomeParams, String offset, String num) {
 
-        return RepositoryUtils.extractData(this.userApi.getRecipeHome(getRecipeHomeParams,offset,num), GetRecipeHomeResult.class);
+        return RepositoryUtils.extractData(this.userApi.getRecipeHome(getRecipeHomeParams, offset, num), GetRecipeHomeResult.class);
+    }
+
+    @Override
+    public Observable<UserLoginResult> userLogin(UserLoginParams userLoginParams) {
+        return RepositoryUtils.extractData(this.userApi.userLogin(userLoginParams), UserLoginResult.class);
+    }
+
+    @Override
+    public Observable<UserRegisterResult> userRegister(UserRegisterParams userRegisterParams) {
+        return RepositoryUtils.extractData(this.userApi.userRegister(userRegisterParams), UserRegisterResult.class);
+    }
+
+    @Override
+    public Observable<PersonalResumeListResult> getPersonalResumeListData(PersonalResumeListParams personalResumeListParams) {
+        return RepositoryUtils.extractData(this.userApi.getPersonalResumeData(personalResumeListParams), PersonalResumeListResult.class);
+    }
+
+    @Override
+    public Observable<CompanyInviteInfoListReuslt> getCompanyInviteInfoListData(CompanyInviteInfoListParams companyInviteInfoListParams) {
+        return RepositoryUtils.extractData(this.userApi.getCompanyInfoData(companyInviteInfoListParams), CompanyInviteInfoListReuslt.class);
     }
 
 

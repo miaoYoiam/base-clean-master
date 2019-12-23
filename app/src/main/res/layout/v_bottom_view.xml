@@ -2,7 +2,9 @@
 <com.mine.master.widget.BottomViewWidget xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:paddingTop="@dimen/interval_6"
+    android:paddingBottom="@dimen/interval_6">
 
 
     <LinearLayout
@@ -16,14 +18,16 @@
         <ImageView
             android:id="@+id/bottom_home_icon"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_bottom_home_select" />
 
         <TextView
             android:id="@+id/bottom_home_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/interval_6"
             android:text="首页"
-            android:textColor="@color/text_black"
+            android:textColor="@color/bg_light_main"
             android:textSize="@dimen/text_size_16" />
     </LinearLayout>
 
@@ -38,12 +42,14 @@
         <ImageView
             android:id="@+id/bottom_mine_icon"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_bottom_mine_unselect" />
 
         <TextView
             android:id="@+id/bottom_mine_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/interval_6"
             android:text="我的"
             android:textColor="@color/text_black"
             android:textSize="@dimen/text_size_16" />

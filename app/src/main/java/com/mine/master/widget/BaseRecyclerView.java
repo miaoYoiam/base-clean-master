@@ -64,15 +64,15 @@ public class BaseRecyclerView extends RecyclerView {
     }
 
 
-    public void setOnItemClickListener(OnItemClickListener listener) {
+    private void setOnItemClickListener(OnItemClickListener listener) {
         onItemClickListener = listener;
     }
 
-    public void setOnItemClickListener(OnItemClickListenerExtended listener) {
+    private void setOnItemClickListener(OnItemClickListenerExtended listener) {
         onItemClickListenerExtended = listener;
     }
 
-    public void setOnItemLongClickListener(OnItemLongClickListener listener) {
+    private void setOnItemLongClickListener(OnItemLongClickListener listener) {
         onItemLongClickListener = listener;
     }
 
@@ -87,7 +87,7 @@ public class BaseRecyclerView extends RecyclerView {
                         if (currentChildPosition != -1) {
                             if (onItemClickListener != null) {
                                 onItemClickListener.onItemClick(currentChildView, currentChildPosition);
-                            } else if (onItemClickListenerExtended != null) {
+                            } else {
                                 float x = e.getX();
                                 float y = e.getY();
                                 onItemClickListenerExtended.onItemClick(currentChildView, currentChildPosition, x, y);
@@ -137,9 +137,7 @@ public class BaseRecyclerView extends RecyclerView {
 
             if (currentChildView != null && !interceptedByChild) {
                 try {
-                    if (e != null) {
-                        gestureDetector.onTouchEvent(e);
-                    }
+                    gestureDetector.onTouchEvent(e);
                 } catch (Exception error) {
                     Log.e(TAG, "onInterceptTouchEvent: " + error.toString());
                 }

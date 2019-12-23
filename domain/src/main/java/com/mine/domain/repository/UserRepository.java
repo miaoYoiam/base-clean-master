@@ -15,10 +15,18 @@
  */
 package com.mine.domain.repository;
 
-import com.mine.domain.model.GetCaptheResult;
-import com.mine.domain.model.GetRecipeHomeResult;
+import com.mine.domain.repository.params.CompanyInviteInfoListParams;
 import com.mine.domain.repository.params.GetCaptchaParams;
 import com.mine.domain.repository.params.GetRecipeHomeParams;
+import com.mine.domain.repository.params.PersonalResumeListParams;
+import com.mine.domain.repository.params.UserLoginParams;
+import com.mine.domain.repository.params.UserRegisterParams;
+import com.mine.domain.result.CompanyInviteInfoListReuslt;
+import com.mine.domain.result.GetCaptheResult;
+import com.mine.domain.result.GetRecipeHomeResult;
+import com.mine.domain.result.PersonalResumeListResult;
+import com.mine.domain.result.UserLoginResult;
+import com.mine.domain.result.UserRegisterResult;
 
 import io.reactivex.Observable;
 
@@ -26,7 +34,14 @@ import io.reactivex.Observable;
 public interface UserRepository {
     Observable<GetCaptheResult> getCaptcha(GetCaptchaParams getCaptchaParams);
 
-    Observable<GetRecipeHomeResult> getRecipeHome(GetRecipeHomeParams getRecipeHomeParams,String offset,String num);
+    Observable<GetRecipeHomeResult> getRecipeHome(GetRecipeHomeParams getRecipeHomeParams, String offset, String num);
 
+    Observable<UserLoginResult> userLogin(UserLoginParams userLoginParams);
+
+    Observable<UserRegisterResult> userRegister(UserRegisterParams userLoginParams);
+
+    Observable<PersonalResumeListResult> getPersonalResumeListData(PersonalResumeListParams personalResumeListParams);
+
+    Observable<CompanyInviteInfoListReuslt> getCompanyInviteInfoListData(CompanyInviteInfoListParams companyInviteInfoListParams);
 
 }

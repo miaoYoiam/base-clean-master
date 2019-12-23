@@ -4,8 +4,8 @@ import android.util.Log;
 
 import com.mine.domain.interactor.user.GetCaptchaUseCase;
 import com.mine.domain.interactor.user.GetRecipeHomeUseCase;
-import com.mine.domain.model.GetCaptheResult;
-import com.mine.domain.model.GetRecipeHomeResult;
+import com.mine.domain.result.GetCaptheResult;
+import com.mine.domain.result.GetRecipeHomeResult;
 import com.mine.domain.repository.params.GetCaptchaParams;
 import com.mine.domain.repository.params.GetRecipeHomeParams;
 import com.mine.master.ui.base.presenter.MvpBasePresenter;

@@ -3,17 +3,14 @@ package com.mine.master.ui;
 import android.os.Bundle;
 
 import com.mine.master.R;
-import com.mine.master.ui.base.view.MvpBaseActivity;
-import com.mine.master.internal.HasComponent;
-import com.mine.master.internal.components.DaggerMineComponent;
 import com.mine.master.internal.components.MineComponent;
-import com.mine.master.internal.modules.MineModule;
+import com.mine.master.ui.base.view.MvpBaseActivity;
 import com.mine.master.ui.presenter.TestPresenter;
 import com.mine.master.ui.view.TestView;
 
 import javax.inject.Inject;
 
-public class TestActivity extends MvpBaseActivity<TestView, TestPresenter> implements HasComponent<MineComponent>, TestView {
+public class TestActivity extends MvpBaseActivity<TestView, TestPresenter> implements TestView {
     @Inject
     TestPresenter presenter;
     private MineComponent mineComponent;
@@ -25,12 +22,12 @@ public class TestActivity extends MvpBaseActivity<TestView, TestPresenter> imple
 
     @Override
     public void injectMembers() {
-        DaggerMineComponent.builder()
-                .applicationComponent(getApplicationComponent())
-                .activityModule(getActivityModule())
-                .mineModule(new MineModule())
-                .build()
-                .inject(this);
+//        DaggerMineComponent.builder()
+//                .applicationComponent(getApplicationComponent())
+//                .activityModule(getActivityModule())
+//                .mineModule(new MineModule())
+//                .build()
+//                .inject(this);
     }
 
     @Override
@@ -41,11 +38,8 @@ public class TestActivity extends MvpBaseActivity<TestView, TestPresenter> imple
     }
 
     private void getData() {
-        presenter.getRecipeHome(13,0,20);
+        presenter.getRecipeHome(13, 0, 20);
     }
 
-    @Override
-    public MineComponent getComponent() {
-        return this.mineComponent;
-    }
+
 }

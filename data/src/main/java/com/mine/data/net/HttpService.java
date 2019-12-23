@@ -28,7 +28,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 public class HttpService {
     private static final String TAG = HttpService.class.getSimpleName();
-    private static final String BASE_API = "http://wapi.qa.douguo.com/";
+    private static final String BASE_API = "http://localhost:8080/ssm_maven/";
     private Retrofit mRetrofit;
 
 

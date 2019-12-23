@@ -3,7 +3,7 @@ package com.mine.domain.interactor.user;
 import com.mine.domain.executor.PostExecutionThread;
 import com.mine.domain.executor.ThreadExecutor;
 import com.mine.domain.interactor.BaseRequestUseCase;
-import com.mine.domain.model.GetCaptheResult;
+import com.mine.domain.result.GetCaptheResult;
 import com.mine.domain.repository.UserRepository;
 import com.mine.domain.repository.params.GetCaptchaParams;
 

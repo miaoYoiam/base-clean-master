@@ -2,11 +2,13 @@ package com.mine.master.widget;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.mine.master.App;
 import com.mine.master.R;
 
 import java.util.ArrayList;
@@ -62,6 +64,10 @@ public class BottomViewWidget extends LinearLayout {
         homeContainer.setOnClickListener(v -> {
             if (currentIndex != TAB_HOME) {
                 currentIndex = TAB_HOME;
+                homeIcon.setImageResource(R.mipmap.icon_bottom_home_select);
+                mineIcon.setImageResource(R.mipmap.icon_bottom_mine_unselect);
+                homeTitle.setTextColor(ContextCompat.getColor(App.app, R.color.bg_light_main));
+                mineTitle.setTextColor(ContextCompat.getColor(App.app, R.color.text_black));
                 if (clickListener != null) {
                     clickListener.onClickTab(currentIndex);
                 }
@@ -71,6 +77,10 @@ public class BottomViewWidget extends LinearLayout {
         mineContainer.setOnClickListener(v -> {
             if (currentIndex != TAB_MINE) {
                 currentIndex = TAB_MINE;
+                homeIcon.setImageResource(R.mipmap.icon_bottom_home_unselect);
+                mineIcon.setImageResource(R.mipmap.icon_bottom_mine_select);
+                homeTitle.setTextColor(ContextCompat.getColor(App.app, R.color.text_black));
+                mineTitle.setTextColor(ContextCompat.getColor(App.app, R.color.bg_light_main));
                 if (clickListener != null) {
                     clickListener.onClickTab(currentIndex);
                 }

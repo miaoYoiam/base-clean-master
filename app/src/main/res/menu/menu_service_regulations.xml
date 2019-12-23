@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:alpha="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_regulations"
+        android:title="规则"
+        android:icon="@mipmap/icon_menu_regular"
+        alpha:showAsAction="always" />
+
+</menu>

@@ -6,17 +6,25 @@ import android.support.v4.app.FragmentTransaction;
 import android.widget.FrameLayout;
 
 import com.mine.master.R;
-import com.mine.master.ui.base.view.BaseActivity;
+import com.mine.master.internal.HasComponent;
+import com.mine.master.internal.components.DaggerMineComponent;
+import com.mine.master.internal.components.MineComponent;
+import com.mine.master.internal.modules.MineModule;
 import com.mine.master.ui.base.view.BaseFragment;
+import com.mine.master.ui.base.view.MvpBaseActivity;
+import com.mine.master.ui.presenter.HomePresenter;
+import com.mine.master.ui.view.HomeView;
 import com.mine.master.utils.Logger;
 import com.mine.master.widget.BottomViewWidget;
 
 import java.util.HashMap;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class HomeActivity extends BaseActivity implements BottomViewWidget.BottomTabClickListener {
+public class HomeActivity extends MvpBaseActivity<HomeView, HomePresenter> implements BottomViewWidget.BottomTabClickListener, HomeView, HasComponent<MineComponent> {
     @BindView(R.id.fragment_container)
     FrameLayout fragmentContainer;
     @BindView(R.id.bottom_container)
@@ -28,11 +36,32 @@ public class HomeActivity extends BaseActivity implements BottomViewWidget.Botto
     private BaseFragment currentFragment;
     private int currentIndex = 0;
 
+    @Inject
+    HomePresenter presenter;
+
+    private MineComponent mineComponent;
+
+    @Override
+    public HomePresenter getPresenter() {
+        return this.presenter;
+    }
+
+    @Override
+    public void injectMembers() {
+        mineComponent = DaggerMineComponent.builder()
+                .applicationComponent(getApplicationComponent())
+                .activityModule(getActivityModule())
+                .mineModule(new MineModule())
+                .build();
+        mineComponent.inject(this);
+    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.a_home);
         ButterKnife.bind(this);
+        getPresenter().attachView(this);
         initView();
         initFragments();
         showFragment(currentIndex);
@@ -78,5 +107,10 @@ public class HomeActivity extends BaseActivity implements BottomViewWidget.Botto
     @Override
     public void onClickTab(int currentTab) {
         showFragment(currentTab);
+    }
+
+    @Override
+    public MineComponent getComponent() {
+        return this.mineComponent;
     }
 }

@@ -1,4 +1,4 @@
-package com.mine.domain.model;
+package com.mine.domain.result;
 
 
 public class GetCaptheResult {
