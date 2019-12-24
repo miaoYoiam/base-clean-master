@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/title_search_bar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@mipmap/bg_appbar"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/back"
+        android:layout_width="?attr/actionBarSize"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <include layout="@layout/v_title_text_back" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="9dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="9dp"
+        android:layout_weight="1"
+        android:background="@drawable/shape_2222_bg_gray3_app_transparent_0"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/search_text"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/bg_transparent"
+            android:cursorVisible="true"
+            android:drawableLeft="@mipmap/icon_search_gray"
+            android:drawablePadding="5dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:hint="搜索"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingLeft="10dp"
+            android:textColor="@color/text_black"
+            android:textColorHint="@color/gray_80"
+            android:textSize="@dimen/text_size_14" />
+
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/search_button"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:paddingLeft="5dp"
+        android:paddingRight="15dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@mipmap/icon_menu_search" />
+    </FrameLayout>
+
+</LinearLayout>

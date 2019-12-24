@@ -69,14 +69,14 @@ public class LoginActivity extends MvpBaseActivity<LoginView, LoginPresenter> im
 
     private void initUI() {
         loginBtn.setOnClickListener(v -> {
-//            String userName = editUserName.getText().toString().trim();
-//            String userPassword = editUserPassword.getText().toString().trim();
-//            if (checkLogin(userName, userPassword)) {
-//                getPresenter().userLogin(userName, userPassword);
-//            }
-            Intent intent = new Intent(this, HomeActivity.class);
-            startActivity(intent);
-            finish();
+            String userName = editUserName.getText().toString().trim();
+            String userPassword = editUserPassword.getText().toString().trim();
+            if (checkLogin(userName, userPassword)) {
+                getPresenter().userLogin(userName, userPassword);
+            }
+//            Intent intent = new Intent(this, HomeActivity.class);
+//            startActivity(intent);
+//            finish();
 
         });
     }
@@ -100,10 +100,19 @@ public class LoginActivity extends MvpBaseActivity<LoginView, LoginPresenter> im
 
     @Override
     public void userLoginSuccess(UserLoginResult userLoginResult) {
-        SharePersistentUtils.getInstance().saveInt(LoginActivity.this, Keys.USER_ID, userLoginResult.id);
-        SharePersistentUtils.getInstance().savePerference(LoginActivity.this, Keys.USER_NAME, userLoginResult.userName);
-        SharePersistentUtils.getInstance().savePerference(LoginActivity.this, Keys.USER_PASSWORD, userLoginResult.password);
-        SharePersistentUtils.getInstance().savePerference(LoginActivity.this, Keys.USER_ROLE, userLoginResult.roleName);
+        SharePersistentUtils.getInstance().saveInt(LoginActivity.this, Keys.USER_ID, userLoginResult.getUser().getId());
+        SharePersistentUtils.getInstance().savePerference(LoginActivity.this, Keys.USER_NAME, userLoginResult.getUser().getUserName());
+        if (!TextUtils.isEmpty(userLoginResult.getUser().getRoleType())) {
+            int roleType = 0;
+            try {
+                roleType = Integer.parseInt(userLoginResult.getUser().getRoleType());
+            } catch (Exception e) {
+                Logger.w(e.toString());
+            }
+            SharePersistentUtils.getInstance().saveInt(LoginActivity.this, Keys.USER_ROLE_TYPE, roleType);
+
+        }
+        SharePersistentUtils.getInstance().savePerference(LoginActivity.this, Keys.USER_ROLE, userLoginResult.getUser().getRoleName());
         Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
@@ -132,6 +141,7 @@ public class LoginActivity extends MvpBaseActivity<LoginView, LoginPresenter> im
             if (item != null && item.getItemId() == R.id.action_todo) {
                 Intent i = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(i);
+                finish();
             }
         } catch (Exception e) {
             Logger.w(e.toString());

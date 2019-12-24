@@ -1,6 +1,7 @@
 package com.mine.master.widget;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 
 import com.mine.master.App;
 import com.mine.master.R;
+import com.mine.master.ui.UploadActivity;
+import com.mine.master.ui.base.view.BaseActivity;
 
 import java.util.ArrayList;
 
@@ -29,10 +32,12 @@ public class BottomViewWidget extends LinearLayout {
     TextView homeTitle;
     @BindView(R.id.bottom_mine_text)
     TextView mineTitle;
-
+    @BindView(R.id.bottom_upload_container)
+    LinearLayout uploadContainer;
     private ArrayList<ImageView> icons = new ArrayList<>();
     private static final int TAB_HOME = 0;
     private static final int TAB_MINE = TAB_HOME + 1;
+    private static final int TAB_UPLOAD = TAB_MINE + 1;
     private int currentIndex = 0;
     private BottomTabClickListener clickListener;
 
@@ -85,6 +90,12 @@ public class BottomViewWidget extends LinearLayout {
                     clickListener.onClickTab(currentIndex);
                 }
             }
+        });
+
+        uploadContainer.setOnClickListener(v -> {
+            BaseActivity activity = (BaseActivity) getContext();
+            Intent intent = new Intent(activity, UploadActivity.class);
+            activity.startActivity(intent);
         });
     }
 

@@ -32,6 +32,21 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/bottom_upload_container"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_upload_bottom" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/bottom_mine_container"
         android:layout_width="0dp"
         android:layout_height="match_parent"

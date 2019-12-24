@@ -19,12 +19,18 @@ import com.mine.domain.repository.params.CompanyInviteInfoListParams;
 import com.mine.domain.repository.params.GetCaptchaParams;
 import com.mine.domain.repository.params.GetRecipeHomeParams;
 import com.mine.domain.repository.params.PersonalResumeListParams;
+import com.mine.domain.repository.params.SearchListParams;
+import com.mine.domain.repository.params.UploadCompanyInviteParams;
+import com.mine.domain.repository.params.UploadPersonalResumeParams;
 import com.mine.domain.repository.params.UserLoginParams;
 import com.mine.domain.repository.params.UserRegisterParams;
 import com.mine.domain.result.CompanyInviteInfoListReuslt;
 import com.mine.domain.result.GetCaptheResult;
 import com.mine.domain.result.GetRecipeHomeResult;
 import com.mine.domain.result.PersonalResumeListResult;
+import com.mine.domain.result.SearchListResult;
+import com.mine.domain.result.UploadCompanyInviteResult;
+import com.mine.domain.result.UploadPersonalResumeResult;
 import com.mine.domain.result.UserLoginResult;
 import com.mine.domain.result.UserRegisterResult;
 
@@ -43,5 +49,11 @@ public interface UserRepository {
     Observable<PersonalResumeListResult> getPersonalResumeListData(PersonalResumeListParams personalResumeListParams);
 
     Observable<CompanyInviteInfoListReuslt> getCompanyInviteInfoListData(CompanyInviteInfoListParams companyInviteInfoListParams);
+
+    Observable<UploadPersonalResumeResult> uploadPersonalResume(UploadPersonalResumeParams uploadPersonalResumeParams);
+
+    Observable<UploadCompanyInviteResult> uploadCompanyInvite(UploadCompanyInviteParams uploadCompanyInviteParams);
+
+    Observable<SearchListResult> searchListData(SearchListParams searchListParams);
 
 }

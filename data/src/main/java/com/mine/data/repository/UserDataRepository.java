@@ -23,12 +23,18 @@ import com.mine.domain.repository.params.CompanyInviteInfoListParams;
 import com.mine.domain.repository.params.GetCaptchaParams;
 import com.mine.domain.repository.params.GetRecipeHomeParams;
 import com.mine.domain.repository.params.PersonalResumeListParams;
+import com.mine.domain.repository.params.SearchListParams;
+import com.mine.domain.repository.params.UploadCompanyInviteParams;
+import com.mine.domain.repository.params.UploadPersonalResumeParams;
 import com.mine.domain.repository.params.UserLoginParams;
 import com.mine.domain.repository.params.UserRegisterParams;
 import com.mine.domain.result.CompanyInviteInfoListReuslt;
 import com.mine.domain.result.GetCaptheResult;
 import com.mine.domain.result.GetRecipeHomeResult;
 import com.mine.domain.result.PersonalResumeListResult;
+import com.mine.domain.result.SearchListResult;
+import com.mine.domain.result.UploadCompanyInviteResult;
+import com.mine.domain.result.UploadPersonalResumeResult;
 import com.mine.domain.result.UserLoginResult;
 import com.mine.domain.result.UserRegisterResult;
 
@@ -85,6 +91,21 @@ public class UserDataRepository implements UserRepository {
     @Override
     public Observable<CompanyInviteInfoListReuslt> getCompanyInviteInfoListData(CompanyInviteInfoListParams companyInviteInfoListParams) {
         return RepositoryUtils.extractData(this.userApi.getCompanyInfoData(companyInviteInfoListParams), CompanyInviteInfoListReuslt.class);
+    }
+
+    @Override
+    public Observable<UploadPersonalResumeResult> uploadPersonalResume(UploadPersonalResumeParams uploadPersonalResumeParams) {
+        return RepositoryUtils.extractData(this.userApi.uploadPersonalResume(uploadPersonalResumeParams), UploadPersonalResumeResult.class);
+    }
+
+    @Override
+    public Observable<UploadCompanyInviteResult> uploadCompanyInvite(UploadCompanyInviteParams uploadCompanyInviteParams) {
+        return RepositoryUtils.extractData(this.userApi.uploadCompanyInvite(uploadCompanyInviteParams), UploadCompanyInviteResult.class);
+    }
+
+    @Override
+    public Observable<SearchListResult> searchListData(SearchListParams searchListParams) {
+        return RepositoryUtils.extractData(this.userApi.searchListData(searchListParams), SearchListResult.class);
     }
 
 

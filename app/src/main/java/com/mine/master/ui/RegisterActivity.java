@@ -93,6 +93,7 @@ public class RegisterActivity extends MvpBaseActivity<RegisterView, RegisterPres
                 }
             }
         });
+        userRoleRadioGroup.check(R.id.select_personal);
         userRoleRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -145,8 +146,8 @@ public class RegisterActivity extends MvpBaseActivity<RegisterView, RegisterPres
         try {
             if (item != null && item.getItemId() == R.id.action_todo) {
                 Intent i = new Intent(RegisterActivity.this, LoginActivity.class);
-
                 startActivity(i);
+                finish();
             }
         } catch (Exception e) {
             Logger.w(e.toString());
@@ -156,10 +157,19 @@ public class RegisterActivity extends MvpBaseActivity<RegisterView, RegisterPres
 
     @Override
     public void userRegisterSuccess(UserRegisterResult userRegisterResult) {
-        SharePersistentUtils.getInstance().saveInt(RegisterActivity.this, Keys.USER_ID, userRegisterResult.id);
-        SharePersistentUtils.getInstance().saveInt(RegisterActivity.this, Keys.USER_ROLE_TYPE, Integer.parseInt(userRegisterResult.roleType));
-        SharePersistentUtils.getInstance().savePerference(RegisterActivity.this, Keys.USER_NAME, userRegisterResult.userName);
-        SharePersistentUtils.getInstance().savePerference(RegisterActivity.this, Keys.USER_ROLE, userRegisterResult.roleName);
+        SharePersistentUtils.getInstance().saveInt(RegisterActivity.this, Keys.USER_ID, userRegisterResult.getUser().getId());
+        if (!TextUtils.isEmpty(userRegisterResult.getUser().getRoleType())) {
+            int roleType = 0;
+            try {
+                roleType = Integer.parseInt(userRegisterResult.getUser().getRoleType());
+            } catch (Exception e) {
+                Logger.w(e.toString());
+            }
+            SharePersistentUtils.getInstance().saveInt(RegisterActivity.this, Keys.USER_ROLE_TYPE, roleType);
+
+        }
+        SharePersistentUtils.getInstance().savePerference(RegisterActivity.this, Keys.USER_NAME, userRegisterResult.getUser().getUserName());
+        SharePersistentUtils.getInstance().savePerference(RegisterActivity.this, Keys.USER_ROLE, userRegisterResult.getUser().getRoleName());
         Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);

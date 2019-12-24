@@ -9,7 +9,9 @@ import com.mine.master.ui.LoginActivity;
 import com.mine.master.ui.MainActivity;
 import com.mine.master.ui.MineFragment;
 import com.mine.master.ui.RegisterActivity;
+import com.mine.master.ui.SearchActivity;
 import com.mine.master.ui.TestActivity;
+import com.mine.master.ui.UploadActivity;
 
 import dagger.Component;
 
@@ -29,5 +31,9 @@ public interface MineComponent extends ActivityComponent {
     void inject(MineFragment mineFragment);
 
     void inject(HomeFragment homeFragment);
+
+    void inject(UploadActivity uploadActivity);
+
+    void inject(SearchActivity searchActivity);
 
 }

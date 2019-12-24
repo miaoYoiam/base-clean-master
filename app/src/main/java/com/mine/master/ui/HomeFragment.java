@@ -25,9 +25,11 @@ import com.mine.master.ui.base.view.MvpBaseFragment;
 import com.mine.master.ui.presenter.HomeFragmentPresenter;
 import com.mine.master.ui.view.HomeFragmentView;
 import com.mine.master.utils.AMapLocationUtils;
+import com.mine.master.utils.Keys;
+import com.mine.master.utils.Logger;
+import com.mine.master.utils.SharePersistentUtils;
 import com.mine.master.widget.BaseRecyclerView;
 import com.mine.master.widget.BaseRecyclerViewAdapter;
-import com.mine.master.widget.Holder;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -82,7 +84,6 @@ public class HomeFragment extends MvpBaseFragment<HomeFragmentView, HomeFragment
         initUI(view);
         initAmapLocation();
         requestData();
-        sHA1(getActivity());
     }
 
     private void initAmapLocation() {
@@ -101,7 +102,12 @@ public class HomeFragment extends MvpBaseFragment<HomeFragmentView, HomeFragment
     }
 
     private void requestData() {
-        requestPersonalResumeData();
+        int userRoleValue = SharePersistentUtils.getInstance().getInt(App.app, Keys.USER_ROLE_TYPE, 0);
+        if (userRoleValue == RegisterActivity.TYPE_ROLE_COMPANY) {
+            requestPersonalResumeData();
+        } else {
+            requestCompanyResumeData();
+        }
     }
 
     private void requestPersonalResumeData() {
@@ -118,93 +124,18 @@ public class HomeFragment extends MvpBaseFragment<HomeFragmentView, HomeFragment
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(manager);
+        recyclerView.setOnItemClickListener((view1, position) -> {
+            Logger.e(">>>>>>>>>>>");
+        });
     }
 
 
     public class DataAdapter extends BaseRecyclerViewAdapter {
-        public final int TYPE_PERSONAL = BaseRecyclerViewAdapter.typeCount + 1;
-        public final int TYPE_COMPANY = TYPE_PERSONAL + 1;
-
         public DataAdapter(BaseActivity context) {
             super(context);
         }
-
-        @Override
-        public Holder extensionOnCreateViewHolder(ViewGroup parent, int viewType) {
-            if (viewType == TYPE_PERSONAL) {
-                return new PersonalResumeHolder(inflater.inflate(R.layout.item_personal_resume, parent, false));
-            } else if (viewType == TYPE_COMPANY) {
-                return new CompanyResumeHolder(inflater.inflate(R.layout.item_company_resume, parent, false));
-            }
-            return super.extensionOnCreateViewHolder(parent, viewType);
-        }
-
-        @Override
-        public void extensionOnBindViewHolder(Holder holder, int position) {
-            super.extensionOnBindViewHolder(holder, position);
-            if (holder.getItemViewType() == TYPE_PERSONAL) {
-                handlePersonalResumeData((PersonalResumeListResult.PersonalResumeBean) adapter.itemList.get(position), (PersonalResumeHolder) holder, position);
-            } else if (holder.getItemViewType() == TYPE_COMPANY) {
-                handleCompanyResumeData(holder, position);
-            }
-        }
-
-        public class PersonalResumeHolder extends Holder {
-            @BindView(R.id.title)
-            TextView title;
-            @BindView(R.id.expect_salary)
-            TextView expectSalary;
-            @BindView(R.id.personal_name)
-            TextView personalName;
-            @BindView(R.id.work_years)
-            TextView workYears;
-            @BindView(R.id.create_date)
-            TextView createDate;
-            @BindView(R.id.phone)
-            TextView phone;
-
-            public PersonalResumeHolder(View itemView) {
-                super(itemView);
-                ButterKnife.bind(this, itemView);
-            }
-        }
-
-
-        public class CompanyResumeHolder extends Holder {
-            @BindView(R.id.title)
-            TextView title;
-            @BindView(R.id.expect_salary)
-            TextView expectSalary;
-            @BindView(R.id.company_name)
-            TextView companyName;
-            @BindView(R.id.work_years)
-            TextView workYears;
-            @BindView(R.id.create_date)
-            TextView createDate;
-            @BindView(R.id.phone)
-            TextView phone;
-
-            public CompanyResumeHolder(View itemView) {
-                super(itemView);
-                ButterKnife.bind(this, itemView);
-            }
-        }
-
     }
 
-    private void handleCompanyResumeData(Holder holder, int position) {
-    }
-
-    private void handlePersonalResumeData(PersonalResumeListResult.PersonalResumeBean data, DataAdapter.PersonalResumeHolder holder, int position) {
-        if (data != null && holder != null) {
-            holder.title.setText(data.getTitle());
-            holder.expectSalary.setText(data.getExpectSalary());
-            holder.personalName.setText(data.getAuthor());
-            holder.workYears.setText(data.getWorkYears());
-            holder.createDate.setText(data.getCreateDate());
-            holder.phone.setText("联系电话：" + data.getPhone());
-        }
-    }
 
     @Override
     protected HomeFragmentPresenter getPresenter() {
@@ -230,7 +161,14 @@ public class HomeFragment extends MvpBaseFragment<HomeFragmentView, HomeFragment
 
     @Override
     public void getCompanyInviteInfoListDataSuccess(CompanyInviteInfoListReuslt companyInviteInfoListReuslt) {
-
+        if (companyInviteInfoListReuslt != null
+                && companyInviteInfoListReuslt.getList() != null
+                && !companyInviteInfoListReuslt.getList().isEmpty()) {
+            for (CompanyInviteInfoListReuslt.ListBean companyBean : companyInviteInfoListReuslt.getList()) {
+                adapter.addElements(companyBean, adapter.TYPE_COMPANY);
+            }
+            adapter.notifyDataSetChanged();
+        }
     }
 
     @Override

@@ -64,15 +64,15 @@ public class BaseRecyclerView extends RecyclerView {
     }
 
 
-    private void setOnItemClickListener(OnItemClickListener listener) {
+    public void setOnItemClickListener(OnItemClickListener listener) {
         onItemClickListener = listener;
     }
 
-    private void setOnItemClickListener(OnItemClickListenerExtended listener) {
+    public void setOnItemClickListener(OnItemClickListenerExtended listener) {
         onItemClickListenerExtended = listener;
     }
 
-    private void setOnItemLongClickListener(OnItemLongClickListener listener) {
+    public void setOnItemLongClickListener(OnItemLongClickListener listener) {
         onItemLongClickListener = listener;
     }
 

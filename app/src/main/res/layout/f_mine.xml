@@ -33,9 +33,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="@dimen/interval_20"
-                android:text="个人用户"
                 android:textColor="@color/black"
-                android:textSize="@dimen/text_size_16" />
+                android:textSize="@dimen/text_size_16"
+                tools:text="个人用户" />
         </LinearLayout>
 
         <ImageView
@@ -57,7 +57,8 @@
         android:paddingLeft="@dimen/interval_20"
         android:paddingTop="@dimen/interval_10"
         android:paddingRight="@dimen/interval_20"
-        android:paddingBottom="@dimen/interval_10">
+        android:paddingBottom="@dimen/interval_10"
+        android:visibility="gone">
 
         <TextView
             android:layout_width="wrap_content"
@@ -88,7 +89,8 @@
         android:paddingLeft="@dimen/interval_20"
         android:paddingTop="@dimen/interval_10"
         android:paddingRight="@dimen/interval_20"
-        android:paddingBottom="@dimen/interval_10">
+        android:paddingBottom="@dimen/interval_10"
+        android:visibility="gone">
 
         <TextView
             android:layout_width="wrap_content"
