@@ -1,5 +1,6 @@
 package com.mine.domain.result;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class CompanyInviteInfoListReuslt {
@@ -14,7 +15,8 @@ public class CompanyInviteInfoListReuslt {
         this.list = list;
     }
 
-    public static class ListBean {
+    public static class ListBean implements Serializable {
+        private static final long serialVersionUID = 4816719980668979775L;
         /**
          * companyDescribe : "北京云网高科技术有限公司（简称“云网高科”） 是一家致力于计算机软件开发、技术管理咨询与服务的高新技术企业。公司成立于北京中关村高新产业开发区，公司注册资金500万，公司前身为北京易赛维技术有限公司，于2006年成立，2011年更名为北京云网高科技术有限公司。云网高科是基于WEB及无线环境下的信息化管理软件领导企业，拥有雄厚的研究开发实力和强大的生产及市场营销能力，奉行通过优异的信息产品和完美的售前售后服务，赢得客户的赞誉。
          * <p>

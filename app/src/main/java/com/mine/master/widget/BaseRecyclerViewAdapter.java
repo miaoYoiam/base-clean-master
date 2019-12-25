@@ -98,7 +98,7 @@ public class BaseRecyclerViewAdapter extends RecyclerView.Adapter<Holder> {
         } else if (holder.getItemViewType() == TYPE_PERSONAL) {
             handlePersonalResumeData((PersonalResumeListResult.PersonalResumeBean) itemList.get(position), (PersonalResumeHolder) holder, position);
         } else if (holder.getItemViewType() == TYPE_COMPANY) {
-            handleCompanyResumeData((CompanyInviteInfoListReuslt.ListBean) itemList.get(position),(CompanyResumeHolder) holder, position);
+            handleCompanyResumeData((CompanyInviteInfoListReuslt.ListBean) itemList.get(position), (CompanyResumeHolder) holder, position);
         } else {
             extensionOnBindViewHolder(holder, position);
         }
@@ -155,12 +155,12 @@ public class BaseRecyclerViewAdapter extends RecyclerView.Adapter<Holder> {
         }
     }
 
-    private void handleCompanyResumeData(CompanyInviteInfoListReuslt.ListBean data,CompanyResumeHolder holder, int position) {
+    private void handleCompanyResumeData(CompanyInviteInfoListReuslt.ListBean data, CompanyResumeHolder holder, int position) {
         if (data != null && holder != null) {
             holder.title.setText(data.getTitle());
             holder.expectSalary.setText(data.getExpectSalary());
             holder.companyName.setText(data.getCompanyName());
-            holder.workYears.setText(data.getWorkYears());
+            holder.workYears.setText("招收" + data.getWorkYears() + "工作经验");
             holder.createDate.setText(data.getCreateDate());
             holder.phone.setText("联系电话：" + data.getPhone());
         }
@@ -171,7 +171,7 @@ public class BaseRecyclerViewAdapter extends RecyclerView.Adapter<Holder> {
             holder.title.setText(data.getTitle());
             holder.expectSalary.setText(data.getExpectSalary());
             holder.personalName.setText(data.getAuthor());
-            holder.workYears.setText(data.getWorkYears());
+            holder.workYears.setText(data.getWorkYears() + "工作经验");
             holder.createDate.setText(data.getCreateDate());
             holder.phone.setText("联系电话：" + data.getPhone());
         }

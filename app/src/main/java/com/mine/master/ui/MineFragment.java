@@ -79,23 +79,24 @@ public class MineFragment extends MvpBaseFragment<MineFragmentView, MineFragment
         int userRoleValue = SharePersistentUtils.getInstance().getInt(App.app, Keys.USER_ROLE_TYPE, 0);
         if (userRoleValue == RegisterActivity.TYPE_ROLE_COMPANY) {
             userRole.setText("企业用户");
-            showCompanyResume.setVisibility(View.VISIBLE);
+//            showCompanyResume.setVisibility(View.VISIBLE);
             showCompanyResume.setOnClickListener(v -> {
 //                    todo 查看简历
             });
         } else {
             userRole.setText("个人用户");
-            showPersonalResume.setVisibility(View.VISIBLE);
+//            showPersonalResume.setVisibility(View.VISIBLE);
             showPersonalResume.setOnClickListener(v -> {
 //                    todo 查看简历
             });
         }
         showAdvise.setOnClickListener(v -> {
             //        todo 意见反馈
-
+            Toast.makeText(getActivity(), "此功能尚未开放", Toast.LENGTH_SHORT).show();
         });
         showTreaty.setOnClickListener(v -> {
             //        todo 隐私条款
+            Toast.makeText(getActivity(), "本APP所有解释权归王蒙所有", Toast.LENGTH_SHORT).show();
 
         });
         showVersion.setOnClickListener(v -> {

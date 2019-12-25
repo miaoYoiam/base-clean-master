@@ -102,16 +102,15 @@ public class LoginActivity extends MvpBaseActivity<LoginView, LoginPresenter> im
     public void userLoginSuccess(UserLoginResult userLoginResult) {
         SharePersistentUtils.getInstance().saveInt(LoginActivity.this, Keys.USER_ID, userLoginResult.getUser().getId());
         SharePersistentUtils.getInstance().savePerference(LoginActivity.this, Keys.USER_NAME, userLoginResult.getUser().getUserName());
+        int roleType = 0;
         if (!TextUtils.isEmpty(userLoginResult.getUser().getRoleType())) {
-            int roleType = 0;
             try {
                 roleType = Integer.parseInt(userLoginResult.getUser().getRoleType());
             } catch (Exception e) {
                 Logger.w(e.toString());
             }
-            SharePersistentUtils.getInstance().saveInt(LoginActivity.this, Keys.USER_ROLE_TYPE, roleType);
-
         }
+        SharePersistentUtils.getInstance().saveInt(LoginActivity.this, Keys.USER_ROLE_TYPE, roleType);
         SharePersistentUtils.getInstance().savePerference(LoginActivity.this, Keys.USER_ROLE, userLoginResult.getUser().getRoleName());
         Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, HomeActivity.class);

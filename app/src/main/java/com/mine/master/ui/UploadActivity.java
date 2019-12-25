@@ -112,9 +112,9 @@ public class UploadActivity extends MvpBaseActivity<UploadView, UploadPresenter>
     private void initUI() {
         userRoleValue = SharePersistentUtils.getInstance().getInt(App.app, Keys.USER_ROLE_TYPE, 0);
         if (userRoleValue == RegisterActivity.TYPE_ROLE_COMPANY) {
-            personalContainer.setVisibility(View.VISIBLE);
-        } else {
             companyContainer.setVisibility(View.VISIBLE);
+        } else {
+            personalContainer.setVisibility(View.VISIBLE);
         }
     }
 
@@ -170,9 +170,9 @@ public class UploadActivity extends MvpBaseActivity<UploadView, UploadPresenter>
 
     private void upload() {
         if (userRoleValue == RegisterActivity.TYPE_ROLE_COMPANY) {
-            personalUpload();
-        } else {
             companyUpload();
+        } else {
+            personalUpload();
         }
     }
 

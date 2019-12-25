@@ -2,6 +2,7 @@ package com.mine.master.ui;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -26,7 +27,6 @@ import com.mine.master.ui.presenter.HomeFragmentPresenter;
 import com.mine.master.ui.view.HomeFragmentView;
 import com.mine.master.utils.AMapLocationUtils;
 import com.mine.master.utils.Keys;
-import com.mine.master.utils.Logger;
 import com.mine.master.utils.SharePersistentUtils;
 import com.mine.master.widget.BaseRecyclerView;
 import com.mine.master.widget.BaseRecyclerViewAdapter;
@@ -39,6 +39,8 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.mine.master.utils.Keys.KEY_DETAIL_ENTIY;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -91,12 +93,7 @@ public class HomeFragment extends MvpBaseFragment<HomeFragmentView, HomeFragment
         AMapLocationUtils.getInstance().setListener(aMapLocation -> {
             if (location != null) {
                 location.setText(aMapLocation.getCity());
-                location.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(App.app, aMapLocation.getAddress(), Toast.LENGTH_SHORT).show();
-                    }
-                });
+                location.setOnClickListener(v -> Toast.makeText(App.app, aMapLocation.getAddress(), Toast.LENGTH_SHORT).show());
             }
         });
     }
@@ -125,7 +122,20 @@ public class HomeFragment extends MvpBaseFragment<HomeFragmentView, HomeFragment
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(manager);
         recyclerView.setOnItemClickListener((view1, position) -> {
-            Logger.e(">>>>>>>>>>>");
+            int viewType = adapter.getItemViewType(position);
+            Intent intent = new Intent(getActivity(), DetailActivity.class);
+            Bundle bundle = new Bundle();
+            if (viewType == adapter.TYPE_COMPANY) {
+                bundle.putSerializable(KEY_DETAIL_ENTIY, (CompanyInviteInfoListReuslt.ListBean) adapter.itemList.get(position));
+            } else if (viewType == adapter.TYPE_PERSONAL) {
+                bundle.putSerializable(KEY_DETAIL_ENTIY, (PersonalResumeListResult.PersonalResumeBean) adapter.itemList.get(position));
+            }
+            intent.putExtra("bundle", bundle);
+            startActivity(intent);
+        });
+        searchContainer.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), SearchActivity.class);
+            startActivity(intent);
         });
     }
 
