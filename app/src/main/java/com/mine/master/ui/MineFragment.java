@@ -4,13 +4,17 @@ package com.mine.master.ui;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mine.domain.result.UserRegisterResult;
 import com.mine.master.App;
 import com.mine.master.R;
 import com.mine.master.internal.components.MineComponent;
@@ -90,6 +94,12 @@ public class MineFragment extends MvpBaseFragment<MineFragmentView, MineFragment
 //                    todo 查看简历
             });
         }
+        userName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog();
+            }
+        });
         showAdvise.setOnClickListener(v -> {
             //        todo 意见反馈
             Toast.makeText(getActivity(), "此功能尚未开放", Toast.LENGTH_SHORT).show();
@@ -104,10 +114,44 @@ public class MineFragment extends MvpBaseFragment<MineFragmentView, MineFragment
         });
     }
 
+    private void showDialog() {
+        View dialogView = LayoutInflater.from(getActivity()).inflate(R.layout.item_dialog_change_user_info, null, false);
+        final AlertDialog dialog = new AlertDialog.Builder(getActivity()).setView(dialogView).create();
+        EditText editUsername = dialogView.findViewById(R.id.edit_username);
+        TextView cancel = dialogView.findViewById(R.id.cancel);
+        cancel.setOnClickListener(v -> dialog.dismiss());
+        TextView confirm = dialogView.findViewById(R.id.confirm);
+        confirm.setOnClickListener(v -> {
+            String name = editUsername.getText().toString().trim();
+            if (TextUtils.isEmpty(name)) {
+                Toast.makeText(getActivity(), "请输入用户昵称", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            int id = SharePersistentUtils.getInstance().getInt(App.app, Keys.USER_ID);
+            getPresenter().userRegister(name, id);
+            dialog.dismiss();
+        });
+        dialog.show();
+    }
+
     @Override
     protected MineFragmentPresenter getPresenter() {
         return this.presenter;
     }
 
 
+    @Override
+    public void userUpdateSuccess(UserRegisterResult userRegisterResult) {
+        String userNameValue = userRegisterResult.getUser().getUserName();
+        SharePersistentUtils.getInstance().savePerference(App.app, Keys.USER_NAME, userNameValue);
+        userName.setText(userNameValue);
+        Toast.makeText(getActivity(), "修改成功", Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    public void userUpdateFail(Throwable throwable) {
+        Toast.makeText(getActivity(), "修改失败", Toast.LENGTH_SHORT).show();
+
+    }
 }
